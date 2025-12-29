@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D'Sign — Studio Créatif</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#6366f1',
+                            dark: '#4f46e5',
+                            light: '#818cf8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .signature-style {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#hero" class="text-2xl font-bold">
+                    <span class="signature-style">D'</span><span>Sign</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-gray-700 hover:text-primary transition">À Propos</a>
+                    <a href="#profile" class="text-sm font-medium text-gray-700 hover:text-primary transition">Profil</a>
+                    <a href="#services" class="text-sm font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="#portfolio" class="text-sm font-medium text-gray-700 hover:text-primary transition">Portfolio</a>
+                    <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#about" class="block text-gray-700 hover:text-primary font-medium">À Propos</a>
+                <a href="#profile" class="block text-gray-700 hover:text-primary font-medium">Profil</a>
+                <a href="#services" class="block text-gray-700 hover:text-primary font-medium">Services</a>
+                <a href="#portfolio" class="block text-gray-700 hover:text-primary font-medium">Portfolio</a>
+                <a href="#contact" class="block text-gray-700 hover:text-primary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <!-- Animated Creative Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Gradient Orbs avec plus d'effets -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+            <div class="absolute bottom-1/2 left-1/3 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
+
+            <!-- Lignes géométriques animées SVG -->
+            <svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+                <!-- Lignes diagonales animées -->
+                <line x1="0" y1="0" x2="100%" y2="100%" stroke="url(#gradient1)" stroke-width="2" opacity="0.3" stroke-dasharray="10,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="1000" dur="20s" repeatCount="indefinite"/>
+                </line>
+                <line x1="100%" y1="0" x2="0" y2="100%" stroke="url(#gradient2)" stroke-width="2" opacity="0.3" stroke-dasharray="10,5">
+                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="25s" repeatCount="indefinite"/>
+                </line>
+
+                <!-- Cercles pulsants -->
+                <circle cx="20%" cy="30%" r="150" fill="none" stroke="url(#gradient1)" stroke-width="2" opacity="0.2">
+                    <animate attributeName="r" values="150;180;150" dur="8s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="8s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="80%" cy="70%" r="120" fill="none" stroke="url(#gradient2)" stroke-width="2" opacity="0.2">
+                    <animate attributeName="r" values="120;150;120" dur="10s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="10s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50%" cy="50%" r="200" fill="none" stroke="url(#gradient1)" stroke-width="1" opacity="0.1" stroke-dasharray="5,10">
+                    <animate attributeName="r" values="200;250;200" dur="12s" repeatCount="indefinite"/>
+                </circle>
+
+                <!-- Polygones rotatifs -->
+                <polygon points="100,80 120,60 140,80 120,100" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="0 120 80" to="360 120 80" dur="30s" repeatCount="indefinite"/>
+                </polygon>
+                <polygon points="1400,600 1420,580 1440,600 1420,620" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="360 1420 600" to="0 1420 600" dur="25s" repeatCount="indefinite"/>
+                </polygon>
+
+                <!-- Étoiles décoratives -->
+                <path d="M50,50 L55,45 L60,50 L55,55 Z" fill="#6366f1" opacity="0.2">
+                    <animateTransform attributeName="transform" type="rotate" from="0 55 50" to="360 55 50" dur="20s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+                </path>
+                <path d="M1500,700 L1505,695 L1510,700 L1505,705 Z" fill="#8b5cf6" opacity="0.2">
+                    <animateTransform attributeName="transform" type="rotate" from="360 1505 700" to="0 1505 700" dur="15s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+                </path>
+
+                <!-- Dégradés -->
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <!-- Particules flottantes -->
+            <div class="absolute top-1/4 left-1/3 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+            <div class="absolute top-3/4 left-1/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 right-1/4 w-2 h-2 bg-pink-400 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/3 right-1/3 w-1 h-1 bg-primary-light rounded-full animate-pulse" style="animation-delay: 3s;"></div>
+            <div class="absolute top-1/3 right-1/2 w-1 h-1 bg-purple-300 rounded-full animate-pulse" style="animation-delay: 4s;"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 2.5s;"></div>
+
+            <!-- Grille subtile -->
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+            <!-- Lignes de connexion style réseau -->
+            <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                <line x1="10%" y1="20%" x2="30%" y2="40%" stroke="#6366f1" stroke-width="1" stroke-dasharray="5,5">
+                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
+                </line>
+                <line x1="70%" y1="30%" x2="85%" y2="60%" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="5,5">
+                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
+                </line>
+                <line x1="40%" y1="70%" x2="60%" y2="85%" stroke="#ec4899" stroke-width="1" stroke-dasharray="5,5">
+                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="7s" repeatCount="indefinite"/>
+                </line>
+            </svg>
+        </div>
+
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-white">
+                <span class="signature-style">D'</span><span>Sign</span>
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light mb-12 max-w-3xl mx-auto">
+                Créer des histoires visuelles qui parlent plus fort que les mots
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-dark transition transform hover:scale-105">
+                    Voir le Portfolio
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition transform hover:scale-105">
+                    Prenons Contact
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-3 bg-white rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Un Créatif <span class="gradient-text">Multidisciplinaire</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 font-light mb-8">
+                    Je suis un raconteur d'histoires visuelles qui croit que chaque image, chaque design, chaque détail compte.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Mon travail mélange photographie, vidéo et design graphique pour créer des expériences visuelles authentiques. J'aborde chaque projet avec curiosité et précision, transformant les idées en récits visuels captivants.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Que ce soit capturer un instant, diriger une scène ou créer une identité — je donne vie aux visions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section - Nouvelle -->
+    <section id="profile" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image -->
+                <div class="order-2 md:order-1">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary to-purple-500 rounded-2xl transform rotate-3"></div>
+                        <div class="relative bg-gray-200 rounded-2xl overflow-hidden aspect-square">
+                            <!-- Placeholder pour photo de profil -->
+                            <img src="images/profile.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Derrière <span class="gradient-text">D'Sign</span>
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Bonjour, je suis Dorcas, créative passionnée basée à Cotonou. Depuis plus de 05 ans, je transforme des visions en réalités visuelles.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Mon parcours m'a permis de collaborer avec des marques innovantes, des artistes ambitieux et des entrepreneurs visionnaires. Chaque projet est une opportunité de repousser les limites de la créativité.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Mon approche ? Écouter, comprendre, créer. Je crois fermement que les meilleures créations naissent d'une connexion authentique avec mes clients.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 mb-8">
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">150+</div>
+                            <div class="text-sm text-gray-600">Projets Réalisés</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">50+</div>
+                            <div class="text-sm text-gray-600">Clients Satisfaits</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">[X]</div>
+                            <div class="text-sm text-gray-600">Années d'Expérience</div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition transform hover:scale-105">
+                        Travaillons Ensemble
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                    Ce Que Je <span class="gradient-text">Fais</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Des services créatifs sur-mesure pour donner vie à vos projets
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M21 15l-5-5L5 21"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Photographie</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Capturer des moments authentiques avec une précision artistique et une vision créative
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polygon points="23 7 16 12 23 17 23 7"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Vidéo</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Créer des récits visuels dynamiques qui émeuvent et inspirent
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-purple-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Design Graphique</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Construire des identités visuelles audacieuses et des expériences de marque mémorables
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Contenu Visuel</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Créer des stratégies de contenu cohérentes pour le digital et l'imprimé
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                    Travaux <span class="gradient-text">Sélectionnés</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Une sélection de mes créations les plus récentes
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                    <img src="images/work-1.jpg" alt="Photographie" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-primary rounded-full text-white text-sm font-medium mb-2">Photographie</span>
+                            <h3 class="text-white text-xl font-bold">Projet Photo 1</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                    <img src="images/work-2.jpg" alt="Vidéo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-purple-500 rounded-full text-white text-sm font-medium mb-2">Vidéo</span>
+                            <h3 class="text-white text-xl font-bold">Projet Vidéo 1</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                    <img src="images/work-3.jpg" alt="Design Graphique" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-primary rounded-full text-white text-sm font-medium mb-2">Design Graphique</span>
+                            <h3 class="text-white text-xl font-bold">Projet Design 1</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                    <img src="images/work-4.jpg" alt="Identité Visuelle" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-gray-700 rounded-full text-white text-sm font-medium mb-2">Identité Visuelle</span>
+                            <h3 class="text-white text-xl font-bold">Projet Branding 1</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                    <img src="images/work-5.jpg" alt="Photographie" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-primary rounded-full text-white text-sm font-medium mb-2">Photographie</span>
+                            <h3 class="text-white text-xl font-bold">Projet Photo 2</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+                    <img src="images/work-6.jpg" alt="Contenu Visuel" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <span class="inline-block px-3 py-1 bg-purple-500 rounded-full text-white text-sm font-medium mb-2">Contenu Visuel</span>
+                            <h3 class="text-white text-xl font-bold">Projet Contenu 1</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mindset Section -->
+    <section class="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ma <span class="gradient-text">Philosophie</span></h2>
+            </div>
+
+            <blockquote class="border-l-4 border-primary pl-8 mb-12">
+                <p class="text-2xl md:text-3xl font-light italic text-gray-300 leading-relaxed mb-4">
+                    "Le design n'est pas seulement ce à quoi il ressemble. C'est ce qu'il vous fait ressentir, comment il raconte votre histoire, et comment il reste avec vous bien après le premier regard."
+                </p>
+            </blockquote>
+
+            <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <p>
+                    Chaque projet commence par l'écoute. Comprendre la vision, l'émotion, l'intention derrière ce qui doit être créé. À partir de là, je façonne des visuels qui ne se contentent pas de communiquer — ils résonnent.
+                </p>
+                <p>
+                    Mon processus créatif mélange intuition et stratégie, spontanéité et précision. Je crois aux idées audacieuses exécutées avec soin.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Créons <span class="gradient-text">Ensemble</span>
+            </h2>
+            <p class="text-xl text-gray-600 mb-12">
+                Prêt à donner vie à votre vision ? Discutons-en.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+                <a href="mailto:hello@dsign.studio" class="flex items-center gap-3 text-lg text-gray-700 hover:text-primary transition group">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <span class="font-medium">hello@dsign.studio</span>
+                </a>
+
+                <a href="https://instagram.com/dsign" target="_blank" class="flex items-center gap-3 text-lg text-gray-700 hover:text-primary transition group">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <span class="font-medium">@dsign</span>
+                </a>
+            </div>
+
+            <a href="mailto:hello@dsign.studio" class="inline-block bg-primary text-white px-12 py-4 rounded-full text-lg font-semibold hover:bg-primary-dark transition transform hover:scale-105 shadow-lg hover:shadow-2xl">
+                Prenons Contact
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-2xl font-bold">
+                    <span class="signature-style">D'</span><span>Sign</span>
+                </div>
+
+                <div class="flex gap-6">
+                    <a href="#about" class="text-gray-400 hover:text-white transition">À Propos</a>
+                    <a href="#services" class="text-gray-400 hover:text-white transition">Services</a>
+                    <a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+
+                <div class="text-gray-400 text-sm">
+                    &copy; 2025 D'Sign — Tous droits réservés
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!-- Copiez cette section pour remplacer l'arrière-plan du Hero (lignes 117-121) -->
+
+        <!-- Animated Creative Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Gradient Orbs avec plus d'effets -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+            <div class="absolute bottom-1/2 left-1/3 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
+
+            <!-- Lignes géométriques animées SVG -->
+            <svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+                <!-- Lignes diagonales animées -->
+                <line x1="0" y1="0" x2="100%" y2="100%" stroke="url(#gradient1)" stroke-width="2" opacity="0.3" stroke-dasharray="10,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="1000" dur="20s" repeatCount="indefinite"/>
+                </line>
+                <line x1="100%" y1="0" x2="0" y2="100%" stroke="url(#gradient2)" stroke-width="2" opacity="0.3" stroke-dasharray="10,5">
+                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="25s" repeatCount="indefinite"/>
+                </line>
+
+                <!-- Cercles pulsants -->
+                <circle cx="20%" cy="30%" r="150" fill="none" stroke="url(#gradient1)" stroke-width="2" opacity="0.2">
+                    <animate attributeName="r" values="150;180;150" dur="8s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="8s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="80%" cy="70%" r="120" fill="none" stroke="url(#gradient2)" stroke-width="2" opacity="0.2">
+                    <animate attributeName="r" values="120;150;120" dur="10s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="10s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50%" cy="50%" r="200" fill="none" stroke="url(#gradient1)" stroke-width="1" opacity="0.1" stroke-dasharray="5,10">
+                    <animate attributeName="r" values="200;250;200" dur="12s" repeatCount="indefinite"/>
+                </circle>
+
+                <!-- Polygones rotatifs -->
+                <polygon points="100,80 120,60 140,80 120,100" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="0 120 80" to="360 120 80" dur="30s" repeatCount="indefinite"/>
+                </polygon>
+                <polygon points="1400,600 1420,580 1440,600 1420,620" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="360 1420 600" to="0 1420 600" dur="25s" repeatCount="indefinite"/>
+                </polygon>
+
+                <!-- Étoiles décoratives -->
+                <path d="M50,50 L55,45 L60,50 L55,55 Z" fill="#6366f1" opacity="0.2">
+                    <animateTransform attributeName="transform" type="rotate" from="0 55 50" to="360 55 50" dur="20s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+                </path>
+                <path d="M1500,700 L1505,695 L1510,700 L1505,705 Z" fill="#8b5cf6" opacity="0.2">
+                    <animateTransform attributeName="transform" type="rotate" from="360 1505 700" to="0 1505 700" dur="15s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+                </path>
+
+                <!-- Dégradés -->
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <!-- Particules flottantes -->
+            <div class="absolute top-1/4 left-1/3 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+            <div class="absolute top-3/4 left-1/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 right-1/4 w-2 h-2 bg-pink-400 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/3 right-1/3 w-1 h-1 bg-primary-light rounded-full animate-pulse" style="animation-delay: 3s;"></div>
+            <div class="absolute top-1/3 right-1/2 w-1 h-1 bg-purple-300 rounded-full animate-pulse" style="animation-delay: 4s;"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 2.5s;"></div>
+
+            <!-- Grille subtile -->
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+            <!-- Lignes de connexion style réseau -->
+            <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                <line x1="10%" y1="20%" x2="30%" y2="40%" stroke="#6366f1" stroke-width="1" stroke-dasharray="5,5">
+                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
+                </line>
+                <line x1="70%" y1="30%" x2="85%" y2="60%" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="5,5">
+                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
+                </line>
+                <line x1="40%" y1="70%" x2="60%" y2="85%" stroke="#ec4899" stroke-width="1" stroke-dasharray="5,5">
+                    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="7s" repeatCount="indefinite"/>
+                </line>
+            </svg>
+        </div>

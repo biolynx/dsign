@@ -1,0 +1,85 @@
+Create a modern, creative and minimalist one-page website for a multidisciplinary creative named “D’Sign”.
+
+Profile:
+- Independent creative / studio
+- Specialties: photography, video, graphic design, visual content
+- Young, bold, contemporary identity
+- Personal brand, not a corporate agency
+
+Overall style:
+- Clean, modern, creative
+- Strong visual identity
+- Minimalist layout with bold typography
+- Human, artistic, confident
+- High-end but accessible
+- Inspired by creative portfolios and design studios
+
+Brand identity:
+- Name: D’Sign
+- No slogan
+- Signature-style logo (handwritten “D”, clean “Sign”)
+- Black & white base with one creative accent color (violet or blue)
+- Strong contrast and white space
+
+Page structure (one page only):
+
+1. Hero section (above the fold)
+- Large typography with “D’Sign”
+- Short impactful sentence describing creativity (not a slogan, more like a statement)
+- Fullscreen or large visual background (photo or video)
+- Minimal navigation or no navigation
+- Strong first impression
+
+2. About section
+- Short, human presentation of the creative
+- Focus on vision, creativity, and multidisciplinary approach
+- Tone: confident, simple, authentic
+- No long text
+
+3. Services / Skills section
+- Photography
+- Video
+- Graphic Design
+- Visual Identity / Content Creation
+- Presented with icons or minimal visuals
+- Very clean layout
+
+4. Portfolio section
+- Grid or horizontal scroll
+- Mix of photo, video thumbnails, graphic works
+- Strong focus on visuals
+- Hover effects subtle and modern
+
+5. Creative mindset section
+- Short text about creativity, process, and storytelling
+- Artistic tone, not corporate
+- Optional quote-style layout
+
+6. Contact section
+- Simple and minimal
+- Email, Instagram, or contact button
+- No heavy form
+- Clear call to action
+
+UX / UI guidelines:
+- Mobile-first
+- Smooth scrolling
+- Subtle animations (fade, slide, reveal)
+- No heavy effects
+- Elegant transitions
+
+Typography:
+- Modern sans-serif
+- Strong hierarchy (big titles, light body text)
+- Clean and readable
+
+Do not include:
+- No blog
+- No long paragraphs
+- No complex navigation
+- No corporate language
+
+Goal:
+- Showcase creativity
+- Build personal brand
+- Feel like a digital portfolio & signature

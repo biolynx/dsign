@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur d'Images Temporaires - D'Sign</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 { color: #0a0a0a; }
+        .instructions {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .placeholder-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .placeholder-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        canvas {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        .info {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>D'Sign - Générateur d'Images Temporaires</h1>
+
+    <div class="instructions">
+        <h2>Instructions :</h2>
+        <p>Faites un clic droit sur chaque image ci-dessous et sélectionnez <strong>"Enregistrer l'image sous..."</strong></p>
+        <p>Enregistrez-les dans le dossier <code>images/</code> avec les noms suivants :</p>
+        <ul>
+            <li><code>work-1.jpg</code> - Photographie</li>
+            <li><code>work-2.jpg</code> - Vidéo</li>
+            <li><code>work-3.jpg</code> - Design Graphique</li>
+            <li><code>work-4.jpg</code> - Identité Visuelle</li>
+            <li><code>work-5.jpg</code> - Photographie</li>
+            <li><code>work-6.jpg</code> - Contenu Visuel</li>
+        </ul>
+        <p class="info"><strong>Note :</strong> Ce sont des images temporaires. Remplacez-les par votre vrai travail de portfolio dès que possible.</p>
+    </div>
+
+    <div class="placeholder-container" id="placeholders"></div>
+
+    <script>
+        const placeholders = [
+            { name: 'work-1.jpg', label: 'Photographie', color1: '#6366f1', color2: '#4f46e5' },
+            { name: 'work-2.jpg', label: 'Vidéo', color1: '#0a0a0a', color2: '#2a2a2a' },
+            { name: 'work-3.jpg', label: 'Design Graphique', color1: '#8b5cf6', color2: '#7c3aed' },
+            { name: 'work-4.jpg', label: 'Identité Visuelle', color1: '#1a1a1a', color2: '#3a3a3a' },
+            { name: 'work-5.jpg', label: 'Photographie', color1: '#6366f1', color2: '#3b82f6' },
+            { name: 'work-6.jpg', label: 'Contenu Visuel', color1: '#0a0a0a', color2: '#4f46e5' }
+        ];
+
+        const container = document.getElementById('placeholders');
+
+        placeholders.forEach((item, index) => {
+            // Créer le canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 900;
+            const ctx = canvas.getContext('2d');
+
+            // Créer le dégradé de fond
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, item.color1);
+            gradient.addColorStop(1, item.color2);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Ajouter des formes géométriques
+            ctx.globalAlpha = 0.1;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.3, canvas.height * 0.3, 200, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.7, canvas.height * 0.7, 150, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.globalAlpha = 1;
+
+            // Ajouter le texte
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 80px Inter, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText("D'Sign", canvas.width / 2, canvas.height / 2 - 40);
+
+            ctx.font = '40px Inter, Arial, sans-serif';
+            ctx.fillText(item.label, canvas.width / 2, canvas.height / 2 + 40);
+
+            // Créer le conteneur
+            const div = document.createElement('div');
+            div.className = 'placeholder-item';
+
+            div.innerHTML = `
+                <h3>${item.label}</h3>
+                <p class="info">Enregistrer sous : <code>${item.name}</code></p>
+            `;
+
+            div.insertBefore(canvas, div.firstChild);
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
